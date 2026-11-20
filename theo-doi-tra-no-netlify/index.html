@@ -733,7 +733,7 @@ class Component extends DCLogic {
   cnt(d, rows) { // donePrev = tổng kỳ đã đóng (tính chung, gồm cả tháng bắt đầu)
     const n = Math.max(0, +d.donePrev || 0), ps = this.state.planStart, nov = rows.find(r => r.key === ps);
     const done = n + rows.filter(r => r.paid && r.key !== ps).length + (n === 0 && nov && nov.paid ? 1 : 0);
-    return { done, total: Math.max(0, n - 1) + rows.length };
+    return { done, total: +d.term > 0 ? Math.max(+d.term, done) : Math.max(0, n - 1) + rows.length };
   }
   snap() { const s = this.state; return { planStart: s.planStart, remind: s.remind, paid: s.paid, debts: s.debts, updatedAt: s.updatedAt || 0, ver: 4 }; }
   load(o) {
