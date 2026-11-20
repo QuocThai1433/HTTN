@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theo dõi trả nợ</title>
+<script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js": "vendor/react.production.min.js", "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "vendor/react-dom.production.min.js"};</script>
+<script src="dc-runtime.js"></script>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="app">
+<style>/* Industry — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/1f032b1d-9fc7-4d99-a331-c8c9b5f99227.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/2b8a6269-ca5b-4e87-9cb3-53045efcb6c9.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/5c799102-c604-4838-a394-32f78d338fbc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/47aec2dd-ab56-4408-b457-584c05a88b39.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/1d3cf7b3-652e-41b5-961c-05ed36fe72cb.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/225bb40a-c433-4bb6-898f-cb84e52e9ec6.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/b41a616e-0782-440c-9194-570a9ee09f2f.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/1342bc91-0915-4205-940a-579d537031f5.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/db1caf71-ba19-43bc-afc0-b3d402481e68.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/02c72f11-f360-4328-880f-54fbefc981fa.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/b056f759-ea06-4655-be85-209b54641617.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/a5d0fc0d-80c7-4232-98c8-a17ed1462cf9.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/48664a88-ffb4-477c-af51-60b2bb46d311.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/6f0dd9d7-42de-434a-95d5-a8f9b25491fd.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/2f994b02-9618-4471-a458-ba2aae33208b.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+:root {
+  --color-bg: #f2f2f3;
+  --color-surface: #e9e9ea;
+  --color-text: #1d1f20;
+  --color-accent: #5980a6;
+  --color-accent-2: #728fab;
+  --color-divider: color-mix(in srgb, #1d1f20 16%, transparent);
+
+  /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
+     same step of any role matches the others in visual value. */
+  --color-neutral-100: #f5f5f8;
+  --color-neutral-200: #e7e7ea;
+  --color-neutral-300: #d4d4d7;
+  --color-neutral-400: #b7b7ba;
+  --color-neutral-500: #98989b;
+  --color-neutral-600: #7a7a7d;
+  --color-neutral-700: #5d5d60;
+  --color-neutral-800: #424244;
+  --color-neutral-900: #2b2b2d;
+
+  --color-accent-100: #eef6ff;
+  --color-accent-200: #d6ebff;
+  --color-accent-300: #b5d9fd;
+  --color-accent-400: #94bce3;
+  --color-accent-500: #749dc4;
+  --color-accent-600: #597ea3;
+  --color-accent-700: #416180;
+  --color-accent-800: #2c455d;
+  --color-accent-900: #1d2d3d;
+
+  --color-accent-2-100: #eef6ff;
+  --color-accent-2-200: #d6ebff;
+  --color-accent-2-300: #bdd8f2;
+  --color-accent-2-400: #9ebbd8;
+  --color-accent-2-500: #7e9cb8;
+  --color-accent-2-600: #627d98;
+  --color-accent-2-700: #486077;
+  --color-accent-2-800: #314457;
+  --color-accent-2-900: #1f2d3a;
+
+  --font-heading: "Barlow Condensed", system-ui, sans-serif;
+  --font-heading-weight: 600;
+  --font-body: "Barlow", system-ui, sans-serif;
+
+  --space-1: 3.4px;
+  --space-2: 6.8px;
+  --space-3: 10.2px;
+  --space-4: 13.6px;
+  --space-6: 20.4px;
+  --space-8: 27.2px;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 7px;
+
+  /* Elevation — derived from the ground: soft ink-tinted shadows on a
+     light theme, a hairline edge + ambient darkness on a dark one. */
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2b2b2d 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2b2b2d 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2b2b2d 22%, transparent);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+
+.blueprint {
+  position: relative;
+  border: 1px solid var(--color-divider);
+  border-radius: 0;
+}
+/* The overlay image treatments (halftone, duotone) clip their overlay
+   (overflow:hidden); a blueprint wrapper draws its registration marks
+   outside the box, so when both classes share a wrapper the frame must
+   win. */
+.blueprint.halftone, .blueprint.plate, .blueprint.duotone { overflow: visible; }
+.blueprint > .corner {
+  position: absolute; width: 11px; height: 11px;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.blueprint > .corner::before, .blueprint > .corner::after {
+  content: ""; position: absolute; background: currentColor;
+}
+.blueprint > .corner::before { left: 5px; top: 0; width: 1px; height: 100%; }
+.blueprint > .corner::after  { top: 5px; left: 0; width: 100%; height: 1px; }
+.blueprint > .corner.tl { top: -6px; left: -6px; }
+.blueprint > .corner.tr { top: -6px; right: -6px; }
+.blueprint > .corner.bl { bottom: -6px; left: -6px; }
+.blueprint > .corner.br { bottom: -6px; right: -6px; }
+
+.duotone{position:relative;overflow:hidden}
+.duotone::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:var(--color-accent);mix-blend-mode:color}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Components — built with the tokens above. Plain CSS
+   on plain HTML: no JavaScript, no build step. Each class is documented in
+   readme.md and demonstrated in foundations/ and components/.
+   ══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-size: 15px; line-height: 1.55; font-weight: 400; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2);
+}
+h1 { font-size: 42px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 13px; }
+h6 { letter-spacing: 0.08em; text-transform: uppercase; }
+p { margin: 0 0 var(--space-3); }
+a { color: var(--color-accent); text-underline-offset: 3px; }
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+figcaption {
+  font-size: 11px; margin-top: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+/* — rules — */
+.hr {
+  height: 1px; border: 0; margin: var(--space-4) 0;
+  background: var(--color-divider);
+}
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 14px; line-height: 1.2; color: var(--color-text); /* matches the .input's 14px —
+     the pair sits side by side in sign-up rows */
+  background: transparent; border: 1px solid transparent;
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border-radius: var(--radius-md);
+}
+.btn svg { display: block; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-600); }
+.btn-primary:active { background: var(--color-accent-700); }
+.btn-secondary { border-color: var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
+.btn-ghost { color: var(--color-accent); padding-inline: var(--space-1); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
+.btn-icon { width: 36px; height: 36px; padding: 0; }
+.btn-block { width: 100%; margin-top: var(--space-2); }
+
+/* — forms — */
+.field > label {
+  display: block; font-size: 12px; margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 90px; resize: vertical; }
+.radio { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+.radio input, .seg-opt input {
+  position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+}
+.radio .dot {
+  width: 16px; height: 16px; flex: none; border-radius: 50%;
+  border: 1.5px solid var(--color-divider);
+}
+.radio:hover .dot { border-color: var(--color-accent); }
+.radio input:checked + .dot {
+  border-color: var(--color-accent); background: var(--color-accent);
+  box-shadow: inset 0 0 0 4px var(--color-bg);
+}
+.radio input:focus-visible + .dot { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.seg {
+  display: inline-flex; overflow: hidden;
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.seg-opt {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 13px; cursor: pointer;
+}
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-bg); }
+.seg-opt:not(:has(input:checked)):hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+/* — cards — */
+.card {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);
+}
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 17px; line-height: 1.2;
+}
+.card-body { margin: 0; font-size: 13px; opacity: 0.8; flex: 1; }
+.card-meta {
+  display: flex; align-items: center; gap: 6px; font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+.elev-sm { box-shadow: var(--shadow-sm); }
+.elev-md { box-shadow: var(--shadow-md); }
+.elev-lg { box-shadow: var(--shadow-lg); }
+
+/* — tags — */
+.tag {
+  display: inline-flex; align-items: center; font-size: 11px;
+  letter-spacing: 0.02em; padding: 3px 10px;
+  border-radius: calc(var(--radius-md) * 0.75);
+}
+.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
+.tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
+.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
+
+/* — navigation — */
+.nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: none;
+}
+.nav-brand {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 18px; margin-right: auto;
+}
+.nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+
+/* — tables — */
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th {
+  text-align: left; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  padding: var(--space-2); border-bottom: 1px solid var(--color-divider);
+}
+.table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+.table tbody tr:hover { background: color-mix(in srgb, var(--color-text) 4%, transparent); }
+
+/* — dialog — */
+.dialog-backdrop {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
+}
+.dialog {
+  width: min(440px, 100%); display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-4); border-radius: var(--radius-lg);
+  background: var(--color-surface); box-shadow: var(--shadow-lg);
+}
+.dialog-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 20px;
+}
+.dialog-body { font-size: 14px; opacity: 0.85; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-2); }
+
+/* — blueprint frame: components are wireframe objects (see .blueprint
+     and .corner above) — square, transparent, hairline-bordered — */
+.card, .btn, .input, .tag, .seg, .dialog { border-radius: 0; }
+.card, .dialog { background: transparent; border: 1px solid var(--color-divider); }
+.btn { border: 1px solid var(--color-divider); }
+.btn-primary { border-color: var(--color-accent); }
+.btn-ghost { border-color: transparent; }
+
+</style>
+<style>.blueprint{background:#f7fafd}body{margin:0;background:#e3ebf3;color:var(--color-text);font-family:var(--font-body)}a{color:var(--color-accent-700)}a:hover{color:var(--color-accent-900)}input[type=number]::-webkit-inner-spin-button{display:none}</style>
+<script src="ds-bundle.js"></script>
+</helmet>
+<div style="--color-bg:#e3ebf3;--color-neutral-200:#d3dfeb;min-height:100vh;background:#e3ebf3;color:var(--color-text);font-family:var(--font-body);font-variant-numeric:tabular-nums lining-nums">
+
+<div style="background:var(--color-accent-900);color:#f2f6fa;position:sticky;top:0;z-index:20;box-shadow:var(--shadow-md)">
+<div style="max-width:1320px;margin:0 auto;padding:14px 32px 0;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+<div style="display:flex;align-items:baseline;gap:14px">
+<span style="width:30px;height:30px;background:var(--color-accent-400);color:var(--color-accent-900);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:22px;font-weight:600;align-self:center">₫</span>
+<h1 style="margin:0;color:#fff;font-size:28px;letter-spacing:.04em;text-transform:uppercase;line-height:1">Theo dõi trả nợ</h1>
+<span style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-300)">Kế hoạch hàng tháng</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+<span style="display:inline-flex;align-items:baseline;gap:10px;background:var(--color-accent);color:#fff;padding:6px 14px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent-100)">Còn nợ</span><span style="font-family:var(--font-heading);font-size:22px;font-weight:600">{{ headline }}</span></span>
+<span style="font-size:12px;color:var(--color-accent-200)">{{ syncShort }}</span><button class="btn btn-secondary" sc-camel-on-click="{{ exportCsv }}" style="font-size:13px;color:#fff;border-color:var(--color-accent-600)">Xuất CSV</button>
+</div>
+</div>
+<div style="display:flex;gap:4px;overflow-x:auto">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+<button sc-camel-on-click="{{ t.go }}" style="{{ t.style }}">{{ t.label }}<span style="{{ t.badgeStyle }}">{{ t.badge }}</span></button>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="max-width:1320px;margin:0 auto;padding:28px 32px 80px;display:flex;flex-direction:column;gap:28px">
+
+<sc-if value="{{ hasAlert }}" hint-placeholder-val="{{ false }}">
+<div class="blueprint" style="padding:16px 20px;display:flex;flex-direction:column;gap:8px;border-color:{{ alertColor }}">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:var(--font-heading);font-size:20px;font-weight:600;color:{{ alertColor }};text-transform:uppercase;letter-spacing:.03em">{{ alertTitle }}</div>
+<sc-for list="{{ alertLines }}" as="a" hint-placeholder-count="2">
+<div style="display:flex;gap:16px;font-size:14px;flex-wrap:wrap"><span style="min-width:96px;font-weight:600">{{ a.date }}</span><span style="min-width:240px">{{ a.name }}</span><span style="font-weight:600">{{ a.amount }}</span><span style="color:var(--color-neutral-700)">{{ a.status }}</span></div>
+</sc-for>
+</div>
+</sc-if>
+
+<!-- TỔNG QUAN -->
+<sc-if value="{{ isOverview }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-700);font-weight:600">Tổng quan · {{ todayText }}</div>
+<h2 style="margin:0;font-size:38px;line-height:1.05;text-transform:uppercase">Bức tranh nợ hiện tại</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px">
+<sc-for list="{{ kpis }}" as="k" hint-placeholder-count="4">
+<div class="blueprint" style="padding:0;display:flex;flex-direction:column;overflow:visible">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="height:4px;background:var(--color-accent);width:{{ k.bar }}"></div>
+<div style="padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:500">{{ k.label }}</span><span style="font-family:var(--font-heading);font-size:15px;color:var(--color-accent-600)">{{ k.n }}</span></div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:clamp(30px,3.2vw,40px);line-height:1.05;letter-spacing:.01em;overflow-wrap:anywhere">{{ k.value }}<span style="font-size:20px;color:var(--color-neutral-700);margin-left:5px;font-weight:500">{{ k.unit }}</span></div>
+<div style="font-size:12.5px;line-height:1.4;color:var(--color-neutral-700);padding-top:8px;border-top:1px solid var(--color-divider)">{{ k.sub }}</div>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:20px">
+<div class="blueprint" style="padding:20px;display:flex;flex-direction:column;gap:14px">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<h3 style="margin:0;font-size:22px;text-transform:uppercase;letter-spacing:.03em">Tiến độ từng khoản</h3>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)"><span>Khoản nợ · tiến độ theo số kỳ</span><span>Còn lại (đ)</span></div>
+<sc-for list="{{ debtCards }}" as="c" hint-placeholder-count="5">
+<div style="display:flex;flex-direction:column;gap:8px;padding:14px 12px;margin:0 -12px;border-top:1px solid var(--color-divider)" style-hover="background:var(--color-accent-100)">
+<div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline"><span style="font-weight:600;font-size:15px">{{ c.name }}</span><span style="font-family:var(--font-heading);font-size:28px;font-weight:600;line-height:1">{{ c.remaining }}</span></div>
+<div style="height:10px;background:var(--color-neutral-200);position:relative;display:flex"><div style="background:var(--color-accent);width:{{ c.pct }}"></div></div>
+<div style="display:flex;justify-content:space-between;gap:12px;font-size:12.5px;color:var(--color-neutral-700);flex-wrap:wrap"><span style="font-weight:600;color:var(--color-text)">{{ c.periods }}</span><span>{{ c.paidText }}</span><span>{{ c.endText }}</span></div>
+<sc-if value="{{ c.hasWarn }}" hint-placeholder-val="{{ false }}"><div style="font-size:12.5px;color:{{ warnColor }};font-weight:500;padding:6px 10px;background:oklch(0.96 0.03 27)">{{ c.warn }}</div></sc-if>
+</div>
+</sc-for>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<div class="blueprint" style="padding:20px;display:flex;flex-direction:column;gap:12px">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><h3 style="margin:0;font-size:22px;text-transform:uppercase;letter-spacing:.03em">Cần đóng mỗi tháng</h3><span style="font-size:12px;color:var(--color-neutral-700)">Tối đa {{ maxPayText }}</span></div>
+<div style="display:flex;align-items:flex-end;gap:3px;height:150px;border-bottom:1px solid var(--color-text);background:repeating-linear-gradient(to top,transparent 0,transparent 29px,var(--color-divider) 29px,var(--color-divider) 30px)">
+<sc-for list="{{ chart }}" as="m" hint-placeholder-count="20">
+<div title="{{ m.tip }}" style="flex:1;display:flex;flex-direction:column-reverse;height:{{ m.payH }};min-width:0;opacity:{{ m.op }}">
+<sc-for list="{{ m.segs }}" as="g" hint-placeholder-count="3"><div style="height:{{ g.h }};background:{{ g.c }}"></div></sc-for>
+</div>
+</sc-for>
+</div>
+<div style="display:flex;gap:3px;font-size:10px;color:var(--color-neutral-700)"><sc-for list="{{ chart }}" as="m" hint-placeholder-count="20"><div style="flex:1;min-width:0;white-space:nowrap;overflow:visible">{{ m.lbl }}</div></sc-for></div>
+<div style="display:flex;gap:14px;flex-wrap:wrap;font-size:12px"><sc-for list="{{ legend }}" as="l" hint-placeholder-count="5"><span style="display:inline-flex;align-items:center;gap:6px"><span style="width:10px;height:10px;background:{{ l.c }}"></span>{{ l.n }}</span></sc-for></div>
+</div>
+<div class="blueprint" style="padding:20px;display:flex;flex-direction:column;gap:12px">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><h3 style="margin:0;font-size:22px;text-transform:uppercase;letter-spacing:.03em">Dư nợ có lịch trả</h3><span style="font-size:12px;color:var(--color-neutral-700)">Cuối mỗi tháng</span></div>
+<div style="display:flex;align-items:flex-end;gap:3px;height:150px;border-bottom:1px solid var(--color-text);background:repeating-linear-gradient(to top,transparent 0,transparent 29px,var(--color-divider) 29px,var(--color-divider) 30px)">
+<sc-for list="{{ chart }}" as="m" hint-placeholder-count="20"><div title="{{ m.balTip }}" style="flex:1;min-width:0;background:var(--color-accent-300);border-top:2px solid var(--color-accent-700);height:{{ m.balH }}"></div></sc-for>
+</div>
+<div style="font-size:12px;color:var(--color-neutral-700)">Từ {{ balStart }} xuống 0 vào {{ balEnd }}. Khoản “Mượn bạn” không có lịch trả nên không nằm trong biểu đồ.</div>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- NHẮC NHỞ -->
+<sc-if value="{{ isRemind }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+<div><h2 style="margin:0;font-size:32px;text-transform:uppercase">Nhắc nhở đóng tiền</h2><div style="font-size:14px;color:var(--color-neutral-700);margin-top:4px">Bấm “Đã đóng” sau mỗi lần đóng. Dư nợ các kỳ sau tự cập nhật. Nhắc trước {{ remindDays }} ngày.</div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ filters }}" as="f" hint-placeholder-count="4"><button class="{{ f.cls }}" sc-camel-on-click="{{ f.go }}" style="font-size:13px">{{ f.label }}</button></sc-for></div>
+</div>
+<div class="blueprint" style="padding:0">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="display:grid;grid-template-columns:104px 112px minmax(220px,1.6fr) 130px 150px 190px 210px;gap:12px;padding:12px 18px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700);border-bottom:1px solid var(--color-divider);overflow-x:auto;min-width:1100px">
+<span>Hạn đóng</span><span>Nhắc từ</span><span>Khoản nợ</span><span style="text-align:right">Số tiền</span><span style="text-align:right">Dư nợ sau đóng</span><span>Trạng thái</span><span></span>
+</div>
+<div style="overflow-x:auto"><div style="min-width:1100px">
+<sc-for list="{{ taskRows }}" as="r" hint-placeholder-count="8">
+<div>
+<sc-if value="{{ r.isHead }}" hint-placeholder-val="{{ false }}"><div style="padding:10px 18px;background:var(--color-neutral-200);font-family:var(--font-heading);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;display:flex;justify-content:space-between"><span>{{ r.title }}</span><span style="font-size:14px;font-family:var(--font-body);font-weight:500;text-transform:none;letter-spacing:0">{{ r.sum }}</span></div></sc-if>
+<sc-if value="{{ r.isRow }}" hint-placeholder-val="{{ true }}">
+<div style="display:grid;grid-template-columns:104px 112px minmax(220px,1.6fr) 130px 150px 190px 210px;gap:12px;padding:10px 18px;align-items:center;font-size:14px;border-bottom:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);background:{{ r.bg }};opacity:{{ r.op }}">
+<span style="font-weight:600">{{ r.date }}</span><span style="color:var(--color-neutral-700)">{{ r.remindFrom }}</span>
+<span>{{ r.name }}<span style="display:block;font-size:12px;color:{{ warnColor }}">{{ r.note }}</span></span>
+<span style="text-align:right;font-weight:600">{{ r.amount }}</span><span style="text-align:right;color:var(--color-neutral-700)">{{ r.after }}</span>
+<span style="font-weight:500;color:{{ r.stColor }}">{{ r.status }}</span>
+<span style="display:flex;gap:6px;justify-content:flex-end">
+<sc-if value="{{ r.isPaid }}" hint-placeholder-val="{{ false }}"><button class="btn btn-ghost" sc-camel-on-click="{{ r.undo }}" style="font-size:13px">Hoàn tác</button></sc-if>
+<sc-if value="{{ r.isOpen }}" hint-placeholder-val="{{ true }}"><button class="btn btn-primary" sc-camel-on-click="{{ r.pay }}" style="font-size:13px">Đã đóng</button><button class="btn btn-secondary" sc-camel-on-click="{{ r.custom }}" style="font-size:13px" title="Nhập số tiền khác">Số khác</button></sc-if>
+</span>
+</div>
+</sc-if>
+</div>
+</sc-for>
+<sc-if value="{{ taskEmpty }}" hint-placeholder-val="{{ false }}"><div style="padding:36px;text-align:center;color:var(--color-neutral-700)">Không có kỳ nào trong mục này.</div></sc-if>
+</div></div>
+</div>
+</div>
+</sc-if>
+
+<!-- BÁO CÁO THÁNG -->
+<sc-if value="{{ isReport }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+<h2 style="margin:0;font-size:32px;text-transform:uppercase">Báo cáo {{ monthLabel }}</h2>
+<div style="display:flex;align-items:center;gap:8px"><button class="btn btn-secondary" sc-camel-on-click="{{ prevMonth }}" disabled="{{ noPrev }}">←</button><input class="input" type="month" value="{{ msel }}" sc-camel-on-change="{{ setMonth }}" style="width:170px"><button class="btn btn-secondary" sc-camel-on-click="{{ nextMonth }}" disabled="{{ noNext }}">→</button><button class="btn btn-ghost" sc-camel-on-click="{{ thisMonth }}">Tháng này</button></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+<sc-for list="{{ repKpis }}" as="k" hint-placeholder-count="4">
+<div class="blueprint" style="padding:16px 18px;display:flex;flex-direction:column;gap:4px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">{{ k.label }}</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:32px;line-height:1.1">{{ k.value }}</div>
+<div style="font-size:12.5px;color:var(--color-neutral-700)">{{ k.sub }}</div></div>
+</sc-for>
+</div>
+<div class="blueprint" style="padding:0"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="overflow-x:auto"><div style="min-width:960px">
+<div style="display:grid;grid-template-columns:minmax(220px,1.6fr) 110px 150px 170px 160px 190px;gap:12px;padding:12px 18px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700);border-bottom:1px solid var(--color-divider)"><span>Khoản nợ</span><span>Ngày đóng</span><span style="text-align:right">Phải đóng</span><span style="text-align:right">Dư nợ sau khi đóng</span><span>Tình trạng</span><span></span></div>
+<sc-for list="{{ repRows }}" as="r" hint-placeholder-count="5">
+<div style="display:grid;grid-template-columns:minmax(220px,1.6fr) 110px 150px 170px 160px 190px;gap:12px;padding:12px 18px;align-items:center;font-size:14px;border-bottom:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);background:{{ r.bg }}">
+<span style="font-weight:500">{{ r.name }}</span><span>{{ r.date }}</span><span style="text-align:right;font-weight:600">{{ r.amount }}</span><span style="text-align:right;color:var(--color-neutral-700)">{{ r.after }}</span><span style="font-weight:500;color:{{ r.stColor }}">{{ r.status }}</span>
+<span style="display:flex;gap:6px;justify-content:flex-end">
+<sc-if value="{{ r.isPaid }}" hint-placeholder-val="{{ false }}"><button class="btn btn-ghost" sc-camel-on-click="{{ r.undo }}" style="font-size:13px">Hoàn tác</button></sc-if>
+<sc-if value="{{ r.isOpen }}" hint-placeholder-val="{{ false }}"><button class="btn btn-primary" sc-camel-on-click="{{ r.pay }}" style="font-size:13px">Đã đóng</button><button class="btn btn-secondary" sc-camel-on-click="{{ r.custom }}" style="font-size:13px">Số khác</button></sc-if>
+</span></div>
+</sc-for>
+<div style="display:grid;grid-template-columns:minmax(220px,1.6fr) 110px 150px 170px 160px 190px;gap:12px;padding:14px 18px;font-family:var(--font-heading);font-size:20px;font-weight:600;text-transform:uppercase;background:var(--color-neutral-200)"><span>Tổng</span><span></span><span style="text-align:right">{{ repTotal }}</span><span style="text-align:right">{{ repAfter }}</span><span></span><span></span></div>
+</div></div></div>
+<div style="font-size:13px;color:var(--color-neutral-700)">{{ repNote }}</div>
+</div>
+</sc-if>
+
+<!-- LỊCH TRẢ -->
+<sc-if value="{{ isSchedule }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:20px">
+<div><h2 style="margin:0;font-size:32px;text-transform:uppercase">Lịch trả &amp; dư nợ theo tháng</h2><div style="font-size:14px;color:var(--color-neutral-700);margin-top:4px">Ô đậm là kỳ đã đóng. Dư nợ là tổng còn phải đóng sau khi đóng kỳ đó. {{ checkText }}</div></div>
+<div class="blueprint" style="padding:0"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="overflow-x:auto"><div style="min-width:{{ matW }}">
+<div style="display:grid;grid-template-columns:{{ matCols }};gap:10px;padding:12px 18px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700);border-bottom:1px solid var(--color-divider)">
+<span>Tháng</span><sc-for list="{{ matHead }}" as="h" hint-placeholder-count="5"><span style="text-align:right">{{ h }}</span></sc-for><span style="text-align:right">Tổng đóng</span><span style="text-align:right">Tổng dư nợ</span></div>
+<sc-for list="{{ matRows }}" as="r" hint-placeholder-count="12">
+<div style="display:grid;grid-template-columns:{{ matCols }};gap:10px;padding:9px 18px;font-size:14px;align-items:center;border-bottom:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);background:{{ r.bg }}">
+<span style="font-weight:600">{{ r.label }}</span>
+<sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="5"><span style="text-align:right;padding:2px 6px;background:{{ c.bg }};color:{{ c.fg }}">{{ c.t }}</span></sc-for>
+<span style="text-align:right;font-weight:600">{{ r.total }}</span><span style="text-align:right;color:var(--color-neutral-700)">{{ r.bal }}</span></div>
+</sc-for>
+<div style="display:grid;grid-template-columns:{{ matCols }};gap:10px;padding:14px 18px;font-family:var(--font-heading);font-size:19px;font-weight:600;text-transform:uppercase;background:var(--color-neutral-200)"><span>Tổng</span><sc-for list="{{ matTot }}" as="t" hint-placeholder-count="5"><span style="text-align:right">{{ t }}</span></sc-for><span style="text-align:right">{{ matGrand }}</span><span></span></div>
+</div></div></div>
+</div>
+</sc-if>
+
+<!-- KHOẢN NỢ -->
+<sc-if value="{{ isDebts }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+<div><h2 style="margin:0;font-size:32px;text-transform:uppercase">Khoản nợ &amp; tham số</h2><div style="font-size:14px;color:var(--color-neutral-700);margin-top:4px">Sửa số liệu ở đây, toàn bộ lịch trả, nhắc nhở và báo cáo tự cập nhật. Dữ liệu lưu trong trình duyệt này.</div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary" sc-camel-on-click="{{ addPlan }}">+ Khoản có lịch trả</button><button class="btn btn-secondary" sc-camel-on-click="{{ addLump }}">+ Khoản không có lịch trả</button></div>
+</div>
+
+<div class="blueprint" style="padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;align-items:end"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div class="field"><label style="font-size:12px">Tháng bắt đầu kế hoạch (kỳ đóng kế tiếp)</label><input class="input" type="month" value="{{ planStart }}" sc-camel-on-change="{{ setPlanStart }}"></div>
+<div class="field"><label style="font-size:12px">Nhắc trước (ngày)</label><input class="input" type="number" min="0" max="30" value="{{ remindDays }}" sc-camel-on-change="{{ setRemind }}"></div>
+<div style="display:flex;flex-direction:column;gap:6px"><button class="btn btn-secondary" sc-camel-on-click="{{ askNotif }}">{{ notifLabel }}</button><span style="font-size:12px;color:var(--color-neutral-700)">Thông báo chạy khi mở trang này.</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><button class="btn btn-secondary" sc-camel-on-click="{{ resetAll }}">{{ resetLabel }}</button><span style="font-size:12px;color:var(--color-neutral-700)">Khôi phục số liệu từ file kế hoạch.</span></div>
+</div>
+
+<div class="blueprint" style="padding:20px;display:flex;flex-direction:column;gap:14px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap"><h3 style="margin:0;font-size:22px;text-transform:uppercase;letter-spacing:.03em">Đồng bộ Google Sheets</h3><span style="font-size:13px;font-weight:600;color:var(--color-accent-700)">{{ syncStatus }}</span></div>
+<div style="font-size:13px;color:var(--color-neutral-700)">Mọi người dùng chung một đường dẫn là cùng thấy một dữ liệu. Công cụ tự tải về khi mở và mỗi 60 giây, tự đẩy lên sau mỗi thay đổi (bản sửa sau cùng sẽ được giữ). Sheet cũng hiện danh sách khoản nợ và các kỳ đã đóng để xem.</div>
+<div class="field"><label style="font-size:12px">Đường dẫn Web App (Apps Script)</label><div style="display:flex;gap:8px;flex-wrap:wrap"><input class="input" style="flex:1;min-width:260px" value="{{ syncUrl }}" sc-camel-on-change="{{ setSyncUrl }}" placeholder="https://script.google.com/macros/s/.../exec"><button class="btn btn-primary" sc-camel-on-click="{{ connectSync }}">Kết nối &amp; tải về</button><button class="btn btn-secondary" sc-camel-on-click="{{ pushNow }}">Đẩy lên ngay</button><button class="btn btn-ghost" sc-camel-on-click="{{ disconnectSync }}">Ngắt</button></div></div>
+<details style="font-size:13.5px"><summary style="cursor:pointer;font-weight:600;color:var(--color-accent-700)">Cách thiết lập (làm một lần, khoảng 3 phút)</summary>
+<ol style="margin:10px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;line-height:1.5"><li>Tạo một Google Sheet trống. Vào <b>Tiện ích mở rộng → Apps Script</b>.</li><li>Xoá mã có sẵn, dán đoạn mã bên dưới, bấm lưu.</li><li>Bấm <b>Triển khai → Tùy chọn triển khai mới → Ứng dụng web</b>. Đặt "Thực thi bằng": <b>Tôi</b>; "Ai có quyền truy cập": <b>Bất kỳ ai</b>. Cấp quyền khi được hỏi.</li><li>Sao chép đường dẫn kết thúc bằng <b>/exec</b>, dán vào ô phía trên rồi bấm "Kết nối &amp; tải về". Gửi cùng đường dẫn này cho người cùng dùng.</li></ol>
+<div style="margin-top:10px;display:flex;gap:8px;align-items:center"><button class="btn btn-secondary" sc-camel-on-click="{{ copyScript }}" style="font-size:13px">Sao chép mã Apps Script</button><span style="font-size:12px;color:var(--color-neutral-700)">Ai có đường dẫn đều đọc và ghi được dữ liệu. Chỉ chia sẻ cho người tin cậy.</span></div>
+<textarea class="input" readonly="" value="{{ scriptText }}" style="margin-top:8px;min-height:150px;font-family:ui-monospace,Menlo,monospace;font-size:12px"></textarea></details>
+</div>
+<div class="blueprint" style="padding:20px;display:flex;flex-direction:column;gap:14px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div><h3 style="margin:0;font-size:22px;text-transform:uppercase;letter-spacing:.03em">Chia sẻ &amp; đồng bộ dữ liệu</h3><div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">Dữ liệu nằm trong trình duyệt của từng người. Để người khác có cùng số liệu, gửi file hoặc mã đồng bộ cho họ. Người nhận nhập vào sẽ thay toàn bộ dữ liệu của họ.</div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary" sc-camel-on-click="{{ exportJson }}">Xuất file dữ liệu</button><button class="btn btn-secondary" sc-camel-on-click="{{ pickJson }}">Nhập file dữ liệu</button><button class="btn btn-secondary" sc-camel-on-click="{{ copyCode }}">Sao chép mã đồng bộ</button><input type="file" accept=".json,application/json" sc-camel-on-change="{{ importJson }}" ref="{{ fileRef }}" style="display:none"></div>
+<div class="field"><label style="font-size:12px">Dán mã đồng bộ nhận được vào đây</label><div style="display:flex;gap:8px"><input class="input" value="{{ codeText }}" sc-camel-on-change="{{ setCode }}" placeholder="Dán mã rồi bấm Áp dụng"><button class="btn btn-secondary" sc-camel-on-click="{{ applyCode }}">Áp dụng</button></div></div>
+</div>
+<sc-for list="{{ debtForms }}" as="d" hint-placeholder-count="5">
+<div class="blueprint" style="padding:20px;display:flex;flex-direction:column;gap:14px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><div style="display:flex;gap:10px;align-items:center"><span class="tag tag-outline">{{ d.kindLabel }}</span><span style="font-size:13px;color:var(--color-neutral-700)">{{ d.summary }}</span></div><button class="btn btn-ghost" sc-camel-on-click="{{ d.del }}" style="font-size:13px">{{ d.delLabel }}</button></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px">
+<div class="field" style="grid-column:span 2"><label style="font-size:12px">Tên khoản nợ</label><input class="input" value="{{ d.name }}" sc-camel-on-change="{{ d.onName }}"></div>
+<sc-if value="{{ d.isPlan }}" hint-placeholder-val="{{ true }}">
+<div class="field"><label style="font-size:12px">Ngày đóng hàng tháng</label><input class="input" type="number" min="1" max="31" value="{{ d.day }}" sc-camel-on-change="{{ d.onDay }}"></div>
+<div class="field"><label style="font-size:12px">Tổng số tiền phải trả (đ)</label><input class="input" type="text" inputmode="numeric" oninput="var v=this.value,c=this.selectionStart,d=v.slice(0,c).replace(/\D/g,'').length,t=v.replace(/\D/g,'').replace(/\B(?=(\d{3})+(?!\d))/g,'.'),n=0,i=0;this.value=t;for(;i<t.length&&n<d;i++){if(t[i]!=='.')n++;}this.setSelectionRange(i,i);" value="{{ d.totalF }}" sc-camel-on-change="{{ d.onTotal }}"></div>
+<div class="field"><label style="font-size:12px">Số tiền trả hàng tháng (đ)</label><input class="input" type="text" inputmode="numeric" oninput="var v=this.value,c=this.selectionStart,d=v.slice(0,c).replace(/\D/g,'').length,t=v.replace(/\D/g,'').replace(/\B(?=(\d{3})+(?!\d))/g,'.'),n=0,i=0;this.value=t;for(;i<t.length&&n<d;i++){if(t[i]!=='.')n++;}this.setSelectionRange(i,i);" value="{{ d.monthlyF }}" sc-camel-on-change="{{ d.onMonthly }}"></div>
+<div class="field"><label style="font-size:12px">Tổng số kỳ (12 / 24 / 36…)</label><input class="input" type="number" min="1" list="term-opts" value="{{ d.term }}" sc-camel-on-change="{{ d.onTerm }}"><datalist id="term-opts"><option value="6"></option><option value="12"></option><option value="18"></option><option value="24"></option><option value="30"></option><option value="36"></option><option value="48"></option><option value="60"></option></datalist></div>
+<div class="field"><label style="font-size:12px">Số kỳ đã đóng (gồm cả tháng này)</label><input class="input" type="number" min="0" value="{{ d.donePrev }}" sc-camel-on-change="{{ d.onDonePrev }}"></div>
+<div class="field"><label style="font-size:12px">Tháng tất toán (tuỳ chọn)</label><input class="input" type="month" value="{{ d.deadline }}" sc-camel-on-change="{{ d.onDeadline }}"></div>
+</sc-if>
+<sc-if value="{{ d.isLump }}" hint-placeholder-val="{{ false }}"><div class="field"><label style="font-size:12px">{{ d.balLabel }}</label><input class="input" type="text" inputmode="numeric" oninput="var v=this.value,c=this.selectionStart,d=v.slice(0,c).replace(/\D/g,'').length,t=v.replace(/\D/g,'').replace(/\B(?=(\d{3})+(?!\d))/g,'.'),n=0,i=0;this.value=t;for(;i<t.length&&n<d;i++){if(t[i]!=='.')n++;}this.setSelectionRange(i,i);" value="{{ d.balF }}" sc-camel-on-change="{{ d.onBal }}"></div></sc-if>
+</div>
+<sc-if value="{{ d.isLump }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn btn-primary" sc-camel-on-click="{{ d.lumpPay }}">Ghi nhận đã trả</button><span style="font-size:13px;color:var(--color-neutral-700)">Khoản này chỉ cộng vào tổng nợ, không có lịch trả hay nhắc nhở. Đã trả {{ d.paidText }}, còn {{ d.remaining }}.</span></div></sc-if>
+</div>
+</sc-for>
+
+<div class="blueprint" style="padding:20px;display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:var(--color-neutral-800)"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:var(--font-heading);font-size:18px;font-weight:600;text-transform:uppercase;color:var(--color-text)">Cách tính</div>
+<div>Dư nợ ban đầu là số còn phải trả tại tháng bắt đầu kế hoạch. Mỗi kỳ đóng bằng số tiền/tháng, kỳ cuối đóng phần còn lại. Khoản có tháng tất toán đóng toàn bộ dư nợ vào tháng đó.</div>
+<div>Khi bấm “Đã đóng” (hoặc nhập số khác), dư nợ và các kỳ sau được tính lại từ số tiền thực đóng. Đóng dư thì khoản nợ hết sớm hơn.</div>
+<div>Chưa tính lãi phát sinh, phí phạt trả chậm và phí tất toán sớm. Hãy đối chiếu với sao kê của từng bên.</div>
+</div>
+</div>
+</sc-if>
+</div>
+
+<sc-if value="{{ hasDlg }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;background:color-mix(in srgb,var(--color-text) 45%,transparent);z-index:50;display:flex;align-items:center;justify-content:center;padding:20px" sc-camel-on-click="{{ closeDlg }}">
+<div class="blueprint" style="background:var(--color-bg);padding:24px;width:420px;max-width:100%;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-lg)" sc-camel-on-click="{{ stop }}"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<h3 style="margin:0;font-size:26px;text-transform:uppercase">{{ dlgTitle }}</h3>
+<div style="font-size:14px;color:var(--color-neutral-700)">{{ dlgSub }}</div>
+<div class="field"><label style="font-size:12px">Số tiền đã đóng (đ)</label><input class="input" type="text" inputmode="numeric" oninput="var v=this.value,c=this.selectionStart,d=v.slice(0,c).replace(/\D/g,'').length,t=v.replace(/\D/g,'').replace(/\B(?=(\d{3})+(?!\d))/g,'.'),n=0,i=0;this.value=t;for(;i<t.length&&n<d;i++){if(t[i]!=='.')n++;}this.setSelectionRange(i,i);" value="{{ dlgAmount }}" sc-camel-on-change="{{ dlgSet }}" style="font-size:18px"></div>
+<div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn btn-secondary" sc-camel-on-click="{{ closeDlg }}">Huỷ</button><button class="btn btn-primary" sc-camel-on-click="{{ dlgOk }}">Xác nhận</button></div>
+</div></div>
+</sc-if>
+
+<sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--color-accent-900);color:var(--color-bg);padding:12px 20px;font-size:14px;z-index:60;box-shadow:var(--shadow-md)">{{ toast }}</div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="">
+class Component extends DCLogic {
+  state = this.initState();
+  initState() {
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem('tra-no-v1')); } catch (e) {}
+    if (saved) saved = this.norm(saved);
+    return Object.assign({ tab: 'overview', filter: 'open', msel: null, dlg: null, toast: '', delId: null, resetAsk: false,
+      notif: typeof Notification !== 'undefined' ? Notification.permission : 'denied' }, saved || this.seed(),
+      saved && saved.syncUrl !== undefined ? {} : { syncUrl: 'https://script.google.com/macros/s/AKfycbz7HFejM0_RAjwRDNEZ2CJNW-Rmj4XHYm9kG0cL2pu1V0STRxm58sSHCG4BpfL5AoTj/exec' });
+  }
+  norm(o) { // đưa dữ liệu cũ (Sheet / máy cũ) về cách tính mới: số kỳ đã đóng gồm cả tháng bắt đầu
+    if (!o || !Array.isArray(o.debts) || (o.ver || 0) >= 4) return o;
+    const ps = o.planStart, legacy = (o.ver || 0) < 2;
+    o.debts = o.debts.map(d => {
+      if (d.kind === 'lump') return d;
+      const novPaid = o.paid && o.paid[d.id] && o.paid[d.id][ps] !== undefined;
+      return this.mig4(legacy && novPaid ? Object.assign({}, d, { donePrev: (+d.donePrev || 0) + 1 }) : d);
+    });
+    o.ver = 4; return o;
+  }
+  mig4(d) { // thêm Tổng tiền / Đã trả / Số kỳ cho khoản cũ, giữ nguyên số đang hiển thị
+    if (d.kind === 'lump' || d.total > 0) return d;
+    const n = Math.max(0, (+d.donePrev || 0) - 1), r = d.monthly > 0 ? Math.ceil(d.balance0 / d.monthly) : 0;
+    return Object.assign({}, d, { term: +d.term > 0 ? +d.term : n + r, total: n * d.monthly + d.balance0, paidAmt: (+d.donePrev || 0) * d.monthly });
+  }
+  seed() {
+    const p = (id, name, day, monthly, balance0, donePrev, deadline) => ({ id, name, day, monthly, balance0, donePrev, deadline: deadline || '', kind: 'plan' });
+    return { planStart: '2026-11', remind: 2, updatedAt: 1794635714955,
+      paid: { momo: { '2026-11': 2325633 }, vib: { '2026-11': 1273547 }, mb: { '2026-11': 800000 }, max: { '2026-11': 954468 }, sfin: { '2026-11': 1635000 }, friend: { 'adhoc-1794635648448': 0, 'adhoc-1794635713523': 0 } },
+      debts: [
+      p('vib', 'VIB (vay 30 triệu)', 14, 1273547, 42027051, 4),
+      p('max', 'Thẻ tín dụng Max (trả góp 24 triệu)', 14, 954468, 31497436, 4),
+      p('sfin', 'Sfinance (vay 21,5 triệu)', 16, 1635000, 28665000, 4),
+      p('momo', 'Momo (vay 40 triệu)', 20, 2325633, 65117724, 3),
+      p('mb', 'MB (nợ 10.216.000)', 26, 800000, 10216000, 3, '2027-06'),
+      { id: 'friend', name: 'Mượn bạn (không có lịch trả)', kind: 'lump', balance0: 10500000, day: 0, monthly: 0, donePrev: 0, deadline: '' } ].map(d => this.mig4(d)) };
+  }
+  cnt(d, rows) { // donePrev = tổng kỳ đã đóng (tính chung, gồm cả tháng bắt đầu)
+    const n = Math.max(0, +d.donePrev || 0), ps = this.state.planStart, nov = rows.find(r => r.key === ps);
+    const done = n + rows.filter(r => r.paid && r.key !== ps).length + (n === 0 && nov && nov.paid ? 1 : 0);
+    return { done, total: Math.max(0, n - 1) + rows.length };
+  }
+  snap() { const s = this.state; return { planStart: s.planStart, remind: s.remind, paid: s.paid, debts: s.debts, updatedAt: s.updatedAt || 0, ver: 4 }; }
+  load(o) {
+    if (!o || !Array.isArray(o.debts) || !o.planStart) throw new Error('bad');
+    o = this.norm(o);
+    this.commit({ planStart: o.planStart, remind: +o.remind || 0, paid: o.paid || {}, debts: o.debts, msel: null, dlg: null });
+  }
+  enc() { return btoa(unescape(encodeURIComponent(JSON.stringify(this.snap())))); }
+  dec(t) { return JSON.parse(decodeURIComponent(escape(atob(t.trim())))); }
+  fileRef = React.createRef();
+  persist() {
+    const s = this.state;
+    try { localStorage.setItem('tra-no-v1', JSON.stringify(Object.assign(this.snap(), { syncUrl: s.syncUrl || '', ver: 4 }))); } catch (e) {}
+  }
+  commit(patch) { this.setState(Object.assign({ updatedAt: Date.now() }, patch), () => { this.persist(); if (!this._remote) this.schedPush(); this._remote = false; }); }
+  schedPush() { if (!this.state.syncUrl) return; clearTimeout(this._pt); this.setState({ syncMsg: 'Đang chờ đẩy lên…' }); this._pt = setTimeout(() => this.push(), 1200); }
+  push() {
+    const u = this.state.syncUrl; if (!u) return Promise.resolve();
+    this.setState({ syncMsg: 'Đang đẩy lên Sheet…' });
+    return fetch(u, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(this.snap()) })
+      .then(r => r.json()).then(() => this.setState({ syncMsg: 'Đã đồng bộ lúc ' + new Date().toLocaleTimeString('vi-VN') }))
+      .catch(() => this.setState({ syncMsg: 'Lỗi: không đẩy được lên Sheet' }));
+  }
+  pull(force) {
+    const u = this.state.syncUrl; if (!u) return Promise.resolve();
+    return fetch(u + (u.indexOf('?') < 0 ? '?' : '&') + 't=' + Date.now()).then(r => r.json()).then(o => {
+      if (o && o.debts) o = this.norm(o);
+      const t = new Date().toLocaleTimeString('vi-VN');
+      if (o && o.debts && (force || (o.updatedAt || 0) > (this.state.updatedAt || 0))) { this._remote = true; this.commit({ planStart: o.planStart, remind: +o.remind || 0, paid: o.paid || {}, debts: o.debts, updatedAt: o.updatedAt || Date.now(), dlg: null, syncMsg: 'Đã tải dữ liệu mới lúc ' + t }); }
+      else if (o && o.debts) { this.setState({ syncMsg: 'Đã đồng bộ lúc ' + t }); if ((o.updatedAt || 0) < (this.state.updatedAt || 0)) this.push(); }
+      else { this.setState({ syncMsg: 'Sheet còn trống, đang đẩy dữ liệu lên…' }); return this.push(); }
+    }).catch(() => this.setState({ syncMsg: 'Lỗi: không kết nối được Sheet. Kiểm tra đường dẫn và quyền truy cập.' }));
+  }
+  scriptCode() {
+    return "function doGet(e){\n  var sh=getSync_();\n  return ContentService.createTextOutput(sh.getRange('A1').getValue()||'{}').setMimeType(ContentService.MimeType.JSON);\n}\nfunction doPost(e){\n  var txt=e.postData.contents;\n  getSync_().getRange('A1').setValue(txt);\n  try{\n    var d=JSON.parse(txt),ss=SpreadsheetApp.getActiveSpreadsheet();\n    var a=ss.getSheetByName('Khoản nợ')||ss.insertSheet('Khoản nợ');a.clear();\n    a.appendRow(['Khoản nợ','Ngày đóng','Số tiền/tháng','Dư nợ ban đầu','Tháng tất toán']);\n    var b=ss.getSheetByName('Đã đóng')||ss.insertSheet('Đã đóng');b.clear();\n    b.appendRow(['Khoản nợ','Kỳ','Số tiền']);\n    d.debts.forEach(function(x){\n      a.appendRow([x.name,x.day,x.monthly,x.balance0,x.deadline]);\n      var m=(d.paid||{})[x.id]||{};\n      Object.keys(m).forEach(function(k){b.appendRow([x.name,k,m[k]]);});\n    });\n  }catch(err){}\n  return ContentService.createTextOutput('{\"ok\":true}').setMimeType(ContentService.MimeType.JSON);\n}\nfunction getSync_(){\n  var ss=SpreadsheetApp.getActiveSpreadsheet();\n  return ss.getSheetByName('Sync')||ss.insertSheet('Sync');\n}";
+  }
+  say(t) { this.setState({ toast: t }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toast: '' }), 2600); }
+  fmt(n) { return Math.round(n).toLocaleString('vi-VN'); }
+  money(n) { return this.fmt(n) + ' đ'; }
+  ds(d) { return String(d.getDate()).padStart(2, '0') + '/' + String(d.getMonth() + 1).padStart(2, '0') + '/' + d.getFullYear(); }
+  ml(k) { return 'Tháng ' + k.slice(5) + '/' + k.slice(0, 4); }
+  ms(k) { return k.slice(5) + '/' + k.slice(2, 4); }
+  addM(k, n) { const [y, m] = k.split('-').map(Number); const d = new Date(y, m - 1 + n, 1); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0'); }
+  due(k, day) { const [y, m] = k.split('-').map(Number); return new Date(y, m - 1, Math.min(day || 1, new Date(y, m, 0).getDate())); }
+  diffM(a, b) { const [y1, m1] = a.split('-').map(Number), [y2, m2] = b.split('-').map(Number); return (y2 - y1) * 12 + m2 - m1; }
+  clone(o) { return JSON.parse(JSON.stringify(o)); }
+
+  pay(id, key, amt) { const p = this.clone(this.state.paid); (p[id] = p[id] || {})[key] = Math.max(0, +amt || 0); this.commit({ paid: p, dlg: null }); this.say('Đã ghi nhận. Dư nợ đã cập nhật.'); }
+  unpay(id, key) { const p = this.clone(this.state.paid); if (p[id]) delete p[id][key]; this.commit({ paid: p }); this.say('Đã hoàn tác kỳ đóng.'); }
+  derive(n) { // từ Tổng tiền, Số kỳ đã đóng, Tiền/tháng → dư nợ đầu kỳ và số tiền đã trả
+    if (n.kind === 'lump' || !(+n.total > 0)) return n;
+    const k = Math.max(0, Math.round(+n.donePrev || 0)), m = +n.monthly || 0;
+    return Object.assign({}, n, { donePrev: k, paidAmt: k * m, balance0: Math.max(0, n.total - Math.max(0, k - 1) * m) });
+  }
+  upd(id, f, v) {
+    this.commit({ debts: this.state.debts.map(d => {
+      if (d.id !== id) return d;
+      const n = Object.assign({}, d, { [f]: v });
+      return ['total', 'monthly', 'donePrev', 'term'].indexOf(f) >= 0 ? this.derive(n) : n;
+    }) });
+  }
+
+  model() {
+    const s = this.state, today = new Date(); today.setHours(0, 0, 0, 0);
+    const tk = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0');
+    const rd = Math.max(0, +s.remind || 0);
+    const plan = s.debts.filter(d => d.kind !== 'lump'), lump = s.debts.filter(d => d.kind === 'lump');
+    const stats = {}; let rows = [];
+    plan.forEach((d, i) => {
+      const pd = s.paid[d.id] || {}; let bal = Math.max(0, +d.balance0 || 0); const my = [];
+      for (let k = 0; k < 240 && bal > 0 && d.monthly > 0; k++) {
+        const key = this.addM(s.planStart, k); if (d.deadline && key > d.deadline) break;
+        const termLeft = +d.term > 0 ? Math.max(0, +d.term - Math.max(0, (+d.donePrev || 0) - 1)) : 0;
+        if (termLeft && k >= termLeft) break;
+        const planned = (d.deadline && key === d.deadline) || (termLeft && k === termLeft - 1) ? bal : Math.min(d.monthly, bal);
+        const has = pd[key] !== undefined, amt = has ? pd[key] : planned;
+        bal = Math.max(0, bal - amt);
+        const date = this.due(key, d.day), days = Math.round((date - today) / 864e5);
+        my.push({ d, i, key, date, days, planned, amt, paid: has, after: bal, id: d.id + key });
+      }
+      const paidSum = Object.keys(pd).reduce((a, k) => a + pd[k], 0);
+      stats[d.id] = { rows: my, i, paidSum, remaining: Math.max(0, d.balance0 - paidSum) };
+      rows = rows.concat(my);
+    });
+    rows.sort((a, b) => a.date - b.date || a.i - b.i);
+    lump.forEach(d => { const pd = s.paid[d.id] || {}; const ps = Object.keys(pd).reduce((a, k) => a + pd[k], 0); stats[d.id] = { rows: [], paidSum: ps, remaining: Math.max(0, d.balance0 - ps) }; });
+    const keys = []; rows.forEach(r => { if (keys.indexOf(r.key) < 0) keys.push(r.key); }); keys.sort();
+    const lastKey = keys.length ? keys[keys.length - 1] : s.planStart;
+    return { s, today, tk, rd, plan, lump, stats, rows, keys, lastKey };
+  }
+  st(r, m) {
+    if (r.paid) return { label: 'Đã đóng', color: 'var(--color-accent-700)', bg: 'transparent', op: 0.6 };
+    if (r.days < 0) return { label: 'Quá hạn ' + (-r.days) + ' ngày', color: 'oklch(0.5 0.17 27)', bg: 'oklch(0.96 0.03 27)', op: 1 };
+    if (r.days === 0) return { label: 'Hôm nay', color: 'oklch(0.5 0.17 27)', bg: 'oklch(0.96 0.03 27)', op: 1 };
+    if (r.days <= m.rd) return { label: 'Còn ' + r.days + ' ngày, cần chuẩn bị', color: 'var(--color-accent-800)', bg: 'var(--color-accent-100)', op: 1 };
+    return { label: 'Còn ' + r.days + ' ngày', color: 'var(--color-neutral-700)', bg: 'transparent', op: 1 };
+  }
+
+  componentDidMount() {
+    if (this.state.syncUrl) { this.pull(); this._iv = setInterval(() => this.pull(), 60000); }
+    try {
+      const m = this.model(); const hits = m.rows.filter(r => !r.paid && r.days <= m.rd);
+      const day = m.today.toDateString();
+      if (hits.length && typeof Notification !== 'undefined' && Notification.permission === 'granted' && localStorage.getItem('tra-no-notified') !== day) {
+        localStorage.setItem('tra-no-notified', day);
+        new Notification('Nhắc đóng tiền: ' + hits.length + ' khoản', { body: hits.slice(0, 4).map(r => this.ds(r.date) + ' ' + r.d.name + ' ' + this.money(r.amt)).join('\n') });
+      }
+    } catch (e) {}
+  }
+
+  renderVals() {
+    const m = this.model(), s = this.state, F = n => this.fmt(n), M = n => this.money(n);
+    const { rows, keys, stats, plan, lump, rd, today, tk } = m;
+    const ramp = ['var(--color-accent-900)', 'var(--color-accent-700)', 'var(--color-accent-500)', 'var(--color-accent-400)', 'var(--color-accent-300)', 'var(--color-accent-600)'];
+    const warn = 'oklch(0.5 0.17 27)';
+    const totalRemaining = s.debts.reduce((a, d) => a + stats[d.id].remaining, 0);
+    const totalInit = s.debts.reduce((a, d) => a + (+d.balance0 || 0), 0);
+    const totalPaid = s.debts.reduce((a, d) => a + stats[d.id].paidSum, 0);
+    const focus = keys.length ? (tk < keys[0] ? keys[0] : tk > m.lastKey ? m.lastKey : tk) : s.planStart;
+    const monthRows = k => rows.filter(r => r.key === k);
+    const sum = (a, f) => a.reduce((x, r) => x + f(r), 0);
+    const fRows = monthRows(focus);
+    const open = rows.filter(r => !r.paid);
+    const overdue = open.filter(r => r.days < 0), soon = open.filter(r => r.days >= 0 && r.days <= rd);
+    const next = open[0];
+    const nextSame = next ? open.filter(r => +r.date === +next.date) : [];
+    const kpis = [
+      { label: 'Tổng nợ còn lại', value: F(totalRemaining), unit: 'đ', sub: 'Đã trả ' + M(totalPaid) + ' trên ' + M(totalInit) + ' (' + Math.round(totalInit ? totalPaid / totalInit * 100 : 0) + '%)' },
+      { label: (focus === tk ? 'Cần đóng tháng này' : 'Cần đóng ' + this.ms(focus)), value: F(sum(fRows, r => r.amt)), unit: 'đ', sub: 'Đã đóng ' + M(sum(fRows.filter(r => r.paid), r => r.amt)) + ', còn ' + M(sum(fRows.filter(r => !r.paid), r => r.amt)) },
+      { label: 'Kỳ đến hạn tiếp theo', value: next ? this.ds(next.date) : 'Đã xong', unit: '', sub: next ? M(sum(nextSame, r => r.amt)) + ' · ' + nextSame.map(r => r.d.name.split(' (')[0]).join(', ') : 'Không còn kỳ nào chưa đóng' },
+      { label: 'Tất toán toàn bộ dự kiến', value: rows.length ? this.ml(m.lastKey).replace('Tháng ', '') : '-', unit: '', sub: rows.length ? 'Còn ' + (this.diffM(focus, m.lastKey) + 1) + ' tháng có kỳ đóng' : '' }
+    ];
+    kpis.forEach((k, i) => { k.n = '0' + (i + 1); k.bar = i === 0 ? Math.round(totalInit ? totalPaid / totalInit * 100 : 0) + '%' : '100%'; if (i === 0) k.bar = Math.max(4, parseInt(k.bar)) + '%'; });
+    const debtCards = s.debts.map(d => {
+      const t = stats[d.id], pct = d.kind === 'lump' ? (d.balance0 ? t.paidSum / d.balance0 * 100 : 0) : (this.cnt(d, t.rows).total ? this.cnt(d, t.rows).done / this.cnt(d, t.rows).total * 100 : 100);
+      const c = { name: d.name, remaining: M(t.remaining), pct: pct.toFixed(1) + '%', hasWarn: false, warn: '' };
+      if (d.kind === 'lump') { c.periods = 'Không có lịch trả'; c.paidText = 'Đã trả ' + M(t.paidSum); c.endText = 'Ghi nhận khi trả'; return c; }
+      const { done, total } = this.cnt(d, t.rows), last = t.rows[t.rows.length - 1];
+      c.periods = 'Kỳ ' + done + '/' + total; c.paidText = 'Đã trả ' + M(t.paidSum); c.endText = last ? 'Hết ' + this.ds(last.date) : 'Đã tất toán';
+      if (last && t.rows.length > 1 && last.amt > d.monthly * 1.001 && !last.paid) {
+        const fu = t.rows.find(r => !r.paid), cnt = fu && d.deadline ? this.diffM(fu.key, d.deadline) + 1 : 0;
+        c.hasWarn = true; c.warn = 'Kỳ cuối ' + this.ds(last.date) + ' phải tất toán ' + M(last.amt) + ', cao hơn mức thường lệ ' + M(last.amt - d.monthly) + '.' + (cnt ? ' Đóng đều cần ' + M(Math.ceil(t.remaining / cnt)) + '/tháng.' : '');
+      }
+      return c;
+    });
+    const maxPay = Math.max(1, ...keys.map(k => sum(monthRows(k), r => r.amt)));
+    const balOf = k => plan.reduce((a, d) => { const r = stats[d.id].rows.find(x => x.key === k); return a + (r ? r.after : 0); }, 0);
+    const maxBal = Math.max(1, ...keys.map(balOf), plan.reduce((a, d) => a + d.balance0, 0));
+    const chart = keys.map((k, i) => {
+      const tot = sum(monthRows(k), r => r.amt);
+      const segs = plan.map((d, j) => { const r = stats[d.id].rows.find(x => x.key === k); return { h: r ? (r.amt / maxPay * 100).toFixed(2) + '%' : '0%', c: ramp[j % ramp.length] }; });
+      const b = balOf(k);
+      return { lbl: i % 4 === 0 ? this.ms(k) : '', payH: (tot / maxPay * 100).toFixed(1) + '%', segs, op: k === focus ? 1 : 0.85,
+        tip: this.ml(k) + ': đóng ' + M(tot), balH: (b / maxBal * 100).toFixed(1) + '%', balTip: this.ml(k) + ': còn ' + M(b) };
+    });
+    const legend = plan.map((d, j) => ({ n: d.name.split(' (')[0], c: ramp[j % ramp.length] }));
+
+    const hasAlert = overdue.length + soon.length > 0;
+    const alertLines = overdue.concat(soon).slice(0, 8).map(r => ({ date: this.ds(r.date), name: r.d.name, amount: M(r.amt), status: this.st(r, m).label }));
+    const alertTitle = (overdue.length ? overdue.length + ' khoản quá hạn' : '') + (overdue.length && soon.length ? ' · ' : '') + (soon.length ? soon.length + ' khoản sắp đến hạn (' + M(sum(soon, r => r.amt)) + ')' : '');
+
+    const tabsDef = [['overview', 'Tổng quan', 0], ['remind', 'Nhắc nhở', overdue.length + soon.length], ['report', 'Báo cáo tháng', 0], ['schedule', 'Lịch trả', 0], ['debts', 'Khoản nợ', 0]];
+    const tabs = tabsDef.map(t => ({ label: t[1], badge: t[2] ? String(t[2]) : '', go: () => this.setState({ tab: t[0] }),
+      style: 'background:none;border:0;border-bottom:3px solid ' + (s.tab === t[0] ? 'var(--color-accent-400)' : 'transparent') + ';padding:10px 16px;cursor:pointer;font-family:var(--font-heading);font-size:19px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:' + (s.tab === t[0] ? '#fff' : 'var(--color-accent-300)'),
+      badgeStyle: t[2] ? 'margin-left:8px;background:' + warn + ';color:#fff;font-size:12px;padding:1px 7px;font-family:var(--font-body)' : 'display:none' }));
+
+    // reminders
+    const filters = [['open', 'Chưa đóng'], ['alert', 'Quá hạn & sắp đến hạn'], ['paid', 'Đã đóng'], ['all', 'Tất cả']];
+    const fl = s.filter;
+    const lst = rows.filter(r => fl === 'all' ? true : fl === 'paid' ? r.paid : fl === 'alert' ? (!r.paid && r.days <= rd) : !r.paid);
+    const taskRows = []; let lastK = '';
+    lst.forEach(r => {
+      if (r.key !== lastK) { lastK = r.key; const g = lst.filter(x => x.key === r.key); taskRows.push({ isHead: true, isRow: false, title: this.ml(r.key), sum: g.length + ' kỳ · ' + M(sum(g, x => x.amt)) }); }
+      const x = this.st(r, m), d = r.d;
+      taskRows.push({ isHead: false, isRow: true, date: this.ds(r.date), remindFrom: this.ds(new Date(+r.date - rd * 864e5)), name: d.name, amount: F(r.amt), after: F(r.after),
+        note: r.after === 0 ? 'Kỳ cuối: tất toán khoản này' : (r.paid && r.amt !== r.planned ? 'Đã đóng khác dự kiến (' + F(r.planned) + ')' : ''),
+        status: x.label, stColor: x.color, bg: x.bg, op: x.op, isPaid: r.paid, isOpen: !r.paid,
+        pay: () => this.pay(d.id, r.key, r.amt), undo: () => this.unpay(d.id, r.key),
+        custom: () => this.setState({ dlg: { id: d.id, key: r.key, amount: r.amt, title: d.name, sub: this.ml(r.key) + ' · dự kiến ' + M(r.planned) } }) });
+    });
+
+    // report
+    const msel = s.msel && keys.indexOf(s.msel) >= 0 ? s.msel : focus;
+    const mr = monthRows(msel), prevK = this.addM(msel, -1), prevTot = sum(monthRows(prevK), r => r.amt);
+    const repRows = plan.map(d => {
+      const r = mr.find(x => x.d.id === d.id);
+      if (!r) { const t = stats[d.id]; const ended = t.rows.length && msel > t.rows[t.rows.length - 1].key; return { name: d.name, date: '-', amount: '0', after: ended || !t.rows.length ? '0' : F(d.balance0), status: ended || !t.rows.length ? 'Đã xong' : 'Chưa đến hạn', stColor: 'var(--color-neutral-700)', bg: 'transparent', isPaid: false, isOpen: false }; }
+      const x = this.st(r, m);
+      return { name: d.name, date: this.ds(r.date), amount: F(r.amt), after: F(r.after), status: r.after === 0 && !r.paid ? 'Tất toán tháng này · ' + x.label : r.after === 0 ? 'Đã tất toán' : x.label, stColor: x.color, bg: x.bg, isPaid: r.paid, isOpen: !r.paid,
+        pay: () => this.pay(d.id, r.key, r.amt), undo: () => this.unpay(d.id, r.key),
+        custom: () => this.setState({ dlg: { id: d.id, key: r.key, amount: r.amt, title: d.name, sub: this.ml(r.key) + ' · dự kiến ' + M(r.planned) } }) };
+    });
+    const monTot = sum(mr, r => r.amt), monPaid = sum(mr.filter(r => r.paid), r => r.amt);
+    const monAfter = plan.reduce((a, d) => { const r = mr.find(x => x.d.id === d.id); const t = stats[d.id]; return a + (r ? r.after : (t.rows.length && msel > t.rows[t.rows.length - 1].key ? 0 : d.balance0)); }, 0);
+    const delta = monTot - prevTot;
+    const repKpis = [
+      { label: 'Phải đóng trong tháng', value: M(monTot), sub: mr.length + ' khoản đang trả' },
+      { label: 'Đã đóng / còn lại', value: F(monPaid) + ' / ' + F(monTot - monPaid), sub: monTot ? Math.round(monPaid / monTot * 100) + '% hoàn thành trong tháng' : '' },
+      { label: 'So với tháng trước', value: (delta > 0 ? '+' : delta < 0 ? '−' : '') + M(Math.abs(delta)), sub: 'Tháng trước: ' + M(prevTot) },
+      { label: 'Dư nợ cuối tháng', value: M(monAfter), sub: 'Chưa gồm các khoản không có lịch trả' } ];
+    const repNote = mr.some(r => r.after === 0 && !r.paid) ? 'Có khoản tất toán trong tháng này. Chuẩn bị đủ số tiền kỳ cuối.' : (keys.indexOf(msel) < 0 ? '' : 'Bấm “Đã đóng” để dư nợ các tháng sau tự cập nhật.');
+
+    // schedule matrix
+    const matCols = '84px ' + plan.map(() => 'minmax(100px,1fr)').join(' ') + ' 120px 130px';
+    const matRows = keys.map(k => {
+      const cells = plan.map(d => { const r = stats[d.id].rows.find(x => x.key === k); return r ? { t: F(r.amt), bg: r.paid ? 'var(--color-accent)' : 'transparent', fg: r.paid ? 'var(--color-bg)' : 'var(--color-text)' } : { t: '–', bg: 'transparent', fg: 'var(--color-neutral-500)' }; });
+      return { label: this.ms(k), cells, total: F(sum(monthRows(k), r => r.amt)), bal: F(balOf(k)), bg: k === focus ? 'var(--color-accent-100)' : 'transparent' };
+    });
+    const grand = sum(rows, r => r.amt), planInit = sum(plan, d => d.balance0);
+    const checkText = Math.abs(grand - planInit) < 1 ? 'Kiểm tra: tổng đóng khớp tổng nợ ban đầu.' : 'Tổng đóng ' + M(grand) + ' so với nợ ban đầu ' + M(planInit) + ' (chênh do đóng khác dự kiến).';
+
+    // debt forms
+    const delId = s.delId;
+    const debtForms = s.debts.map(d => {
+      const t = stats[d.id], isLump = d.kind === 'lump', num = f => e => this.upd(d.id, f, Math.max(0, parseFloat(e.target.value) || 0)), numM = f => e => this.upd(d.id, f, parseInt(String(e.target.value).replace(/\D/g, '')) || 0);
+      return { isPlan: !isLump, isLump, kindLabel: isLump ? 'Không có lịch trả' : 'Có lịch trả', name: d.name, day: d.day, monthly: d.monthly, totalF: F(d.total || 0), paidAmtF: F(d.paidAmt || 0), monthlyF: F(d.monthly || 0), balF: F(d.balance0 || 0), balance0: d.balance0, donePrev: d.donePrev, term: d.term || '', deadline: d.deadline,
+        balLabel: isLump ? 'Số nợ ban đầu (đ)' : 'Dư nợ tại tháng bắt đầu (đ)' + (+d.term > 0 ? ' · tự tính theo tổng số kỳ' : ''), paidText: M(t.paidSum), remaining: M(t.remaining),
+        summary: isLump ? 'Còn ' + M(t.remaining) : (t.rows.length ? (() => { const c = this.cnt(d, t.rows); return 'Mỗi kỳ ' + M(d.monthly) + ' · đã đóng ' + c.done + '/' + c.total + ' kỳ · còn ' + Math.max(0, c.total - c.done) + ' kỳ · còn ' + M(t.remaining); })() : 'Đã tất toán'),
+        onName: e => this.upd(d.id, 'name', e.target.value), onDay: e => this.upd(d.id, 'day', Math.min(31, Math.max(1, parseInt(e.target.value) || 1))), onMonthly: numM('monthly'), onBal: numM('balance0'), onDonePrev: num('donePrev'), onTerm: num('term'), onTotal: numM('total'), onPaidPeriods: num('paidPeriods'), onPaidAmt: numM('paidAmt'),
+        onDeadline: e => this.upd(d.id, 'deadline', e.target.value),
+        lumpPay: () => this.setState({ dlg: { id: d.id, key: 'adhoc-' + Date.now(), amount: 0, title: d.name, sub: 'Ghi nhận khoản đã trả' } }),
+        delLabel: delId === d.id ? 'Bấm lần nữa để xoá' : 'Xoá khoản này',
+        del: () => { if (delId === d.id) { const p = this.clone(s.paid); delete p[d.id]; this.commit({ debts: s.debts.filter(x => x.id !== d.id), paid: p, delId: null }); } else this.setState({ delId: d.id }); } };
+    });
+    const dlg = s.dlg;
+    const lastR = rows[rows.length - 1];
+
+    return {
+      todayText: this.ds(today), headline: F(totalRemaining) + ' đ',
+      tabs, hasAlert, alertColor: overdue.length ? warn : 'var(--color-accent-700)', alertTitle, alertLines, warnColor: warn,
+      isOverview: s.tab === 'overview', isRemind: s.tab === 'remind', isReport: s.tab === 'report', isSchedule: s.tab === 'schedule', isDebts: s.tab === 'debts',
+      kpis, debtCards, chart, legend, maxPayText: M(maxPay), balStart: M(planInit), balEnd: lastR ? this.ml(m.lastKey) : '-',
+      remindDays: rd, filters: filters.map(f => ({ label: f[1], cls: 'btn ' + (fl === f[0] ? 'btn-primary' : 'btn-secondary'), go: () => this.setState({ filter: f[0] }) })), taskRows, taskEmpty: lst.length === 0,
+      monthLabel: this.ml(msel), msel, repKpis, repRows, repTotal: F(monTot), repAfter: F(monAfter), repNote,
+      noPrev: keys.indexOf(prevK) < 0, noNext: keys.indexOf(this.addM(msel, 1)) < 0,
+      prevMonth: () => this.setState({ msel: prevK }), nextMonth: () => this.setState({ msel: this.addM(msel, 1) }), thisMonth: () => this.setState({ msel: null }),
+      setMonth: e => { const v = e.target.value; if (keys.indexOf(v) >= 0) this.setState({ msel: v }); else this.say('Tháng này không có kỳ đóng nào.'); },
+      matCols, matW: (84 + plan.length * 110 + 280) + 'px', matHead: plan.map(d => d.name.split(' (')[0]), matRows, matTot: plan.map(d => F(stats[d.id].paidSum + stats[d.id].rows.filter(r => !r.paid).reduce((a, r) => a + r.amt, 0))), matGrand: F(grand), checkText,
+      planStart: s.planStart, setPlanStart: e => { if (e.target.value) this.commit({ planStart: e.target.value }); }, setRemind: e => this.commit({ remind: Math.max(0, Math.min(30, parseInt(e.target.value) || 0)) }),
+      notifLabel: s.notif === 'granted' ? 'Thông báo trình duyệt: đang bật' : s.notif === 'denied' ? 'Thông báo bị chặn trong trình duyệt' : 'Bật thông báo trình duyệt',
+      askNotif: () => { if (typeof Notification === 'undefined') return this.say('Trình duyệt không hỗ trợ thông báo.'); Notification.requestPermission().then(p => this.setState({ notif: p })); },
+      resetLabel: s.resetAsk ? 'Bấm lần nữa để khôi phục' : 'Khôi phục số liệu gốc',
+      resetAll: () => { if (s.resetAsk) { const d = this.seed(); this.commit(Object.assign({ resetAsk: false, msel: null }, d)); this.say('Đã khôi phục số liệu gốc.'); } else this.setState({ resetAsk: true }); },
+      debtForms,
+      addPlan: () => this.commit({ debts: s.debts.concat([{ id: 'd' + Date.now(), name: 'Khoản nợ mới', day: 10, monthly: 1000000, balance0: 12000000, donePrev: 0, term: 12, total: 12000000, paidAmt: 0, deadline: '', kind: 'plan' }]) }),
+      addLump: () => this.commit({ debts: s.debts.concat([{ id: 'd' + Date.now(), name: 'Khoản nợ khác', kind: 'lump', balance0: 5000000, day: 0, monthly: 0, donePrev: 0, deadline: '' }]) }),
+      hasDlg: !!dlg, dlgTitle: dlg ? dlg.title : '', dlgSub: dlg ? dlg.sub : '', dlgAmount: dlg ? F(dlg.amount) : '0',
+      dlgSet: e => this.setState({ dlg: Object.assign({}, dlg, { amount: parseInt(String(e.target.value).replace(/\D/g, '')) || 0 }) }),
+      dlgOk: () => this.pay(dlg.id, dlg.key, dlg.amount), closeDlg: () => this.setState({ dlg: null }), stop: e => e.stopPropagation(),
+      hasToast: !!s.toast, toast: s.toast,
+      syncUrl: s.syncUrl || '', scriptText: this.scriptCode(), syncStatus: s.syncUrl ? (s.syncMsg || 'Đã kết nối') : 'Chưa kết nối', syncShort: s.syncUrl ? (s.syncMsg || 'Đã kết nối Sheet') : '',
+      setSyncUrl: e => { this.setState({ syncUrl: e.target.value.trim() }, () => this.persist()); },
+      connectSync: () => { if (!s.syncUrl) return this.say('Hãy dán đường dẫn Web App trước.'); clearInterval(this._iv); this._iv = setInterval(() => this.pull(), 60000); this.setState({ syncMsg: 'Đang kết nối…' }); this.pull(); },
+      pushNow: () => { if (!s.syncUrl) return this.say('Hãy dán đường dẫn Web App trước.'); this.push(); },
+      disconnectSync: () => { clearInterval(this._iv); this.setState({ syncUrl: '', syncMsg: '' }, () => this.persist()); this.say('Đã ngắt đồng bộ. Dữ liệu vẫn còn trên máy này.'); },
+      copyScript: () => { const c = this.scriptCode(); (navigator.clipboard ? navigator.clipboard.writeText(c) : Promise.reject()).then(() => this.say('Đã sao chép mã Apps Script.'), () => this.say('Không tự sao chép được. Hãy bôi đen và chép tay.')); },
+      fileRef: this.fileRef, codeText: s.code || '',
+      exportJson: () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(this.snap(), null, 1)], { type: 'application/json' })); a.download = 'du-lieu-tra-no.json'; a.click(); this.say('Đã xuất file dữ liệu.'); },
+      pickJson: () => this.fileRef.current && this.fileRef.current.click(),
+      importJson: e => { const f = e.target.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => { try { this.load(JSON.parse(r.result)); this.say('Đã nhập dữ liệu từ file.'); } catch (x) { this.say('File không hợp lệ.'); } }; r.readAsText(f); e.target.value = ''; },
+      copyCode: () => { const c = this.enc(); (navigator.clipboard ? navigator.clipboard.writeText(c) : Promise.reject()).then(() => this.say('Đã sao chép mã đồng bộ.'), () => { this.setState({ code: c }); this.say('Không tự sao chép được. Mã đã hiện trong ô bên dưới, hãy chép tay.'); }); },
+      setCode: e => this.setState({ code: e.target.value }),
+      applyCode: () => { try { this.load(this.dec(s.code || '')); this.setState({ code: '' }); this.say('Đã áp dụng mã đồng bộ.'); } catch (x) { this.say('Mã không hợp lệ.'); } },
+      exportCsv: () => {
+        const q = v => '"' + String(v).replace(/"/g, '""') + '"';
+        const L = ['Hạn đóng,Khoản nợ,Số tiền,Dư nợ sau đóng,Trạng thái'].concat(rows.map(r => [this.ds(r.date), q(r.d.name), r.amt, r.after, r.paid ? 'Đã đóng' : 'Chưa đóng'].join(',')));
+        const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['\ufeff' + L.join('\n')], { type: 'text/csv' })); a.download = 'lich-tra-no.csv'; a.click();
+      }
+    };
+  }
+}
+</script>
+</body></html>
